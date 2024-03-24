@@ -14,6 +14,7 @@ export const DashSidebar = () => {
       setTab(tabFromUrl);
     }
   }, [location.search]);
+
   return (
     <Sidebar className="w-full md:w-56">
       <Sidebar.Items>
@@ -28,9 +29,12 @@ export const DashSidebar = () => {
               Profile
             </Sidebar.Item>
           </Link>
-          <Sidebar.Item icon={HiArrowSmRight} className="cursor-pointer">
-            Sign Out
-          </Sidebar.Item>
+          {/* Move the Sidebar.Item outside of the Link */}
+          <Link to="/sign-out">
+            <Sidebar.Item icon={HiArrowSmRight} className="cursor-pointer">
+              Sign Out
+            </Sidebar.Item>
+          </Link>
         </Sidebar.ItemGroup>
       </Sidebar.Items>
     </Sidebar>
